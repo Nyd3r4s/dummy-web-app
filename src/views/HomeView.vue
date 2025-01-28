@@ -1,49 +1,49 @@
-<script setup lang="ts">
-import { createClient, useArcpay } from "arcpay-sdk";
-import { ref, onMounted } from "vue";
-const apiKey = import.meta.env.VITE_PRIVATE_API_KEY;
-
-onMounted(() => {
-  // Instantiate the arcpay client singleton for a given network. Calling this method twice with the same network will return the same instance.
-  createClient("algo:testnet", {
-    apiKey: apiKey, // API key can be obtained from the arcpay dashboard
-  });
+<script lang="ts">
+import { defineComponent } from 'vue';
+import TransactionsViewer from '../components/TransactionsViewer.vue';
+export default defineComponent({
+    name: 'HomeView',
+    components: {
+      TransactionsViewer
+    },
+    setup() {
+        return {
+            // Return any reactive properties or methods here
+        };
+    },
 });
-
-const handleEvent = async () => {
-  console.log("blabla");
-  // You can use the useArcpay helper to get the client instance after instantiating it.
-  const client = useArcpay("algo:testnet");
-  console.log(client);
-
-  console.log(await client.getListings());
-
-  // Create a VOI -> ARC-72 sale
-  const listingId: string = await client.create({ listingType: "sale" });
-  console.log(listingId);
-
-  // Get all listings for your account
-  const listings = await client.getListings();
-  console.log(listings);
-};
 </script>
 
 <template>
-  <section class="text-gray-200 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <div
-        class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto"
-      >
-        <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font">
-          Sample dummy test
-        </h1>
-        <button
-          @click="handleEvent"
-          class="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0"
-        >
-          Create a Sale
-        </button>
-      </div>
-    </div>
-  </section>
+ <header class="text-gray-600 body-font">
+   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+     <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" 
+      class="w-10 h-10 text-white bg-gradient-to-br from-cyan-400 to-purple-500 p-2 rounded-full">
+         <path d="M6 3L2 9l10 12L22 9l-4-6H6z"></path>
+         <path d="M2 9h20"></path>
+         <path d="M12 22L8 9"></path>
+         <path d="M16 9L12 22"></path>
+         <path d="M2 9l10 3 10-3"></path>
+       </svg>
+       <span class="ml-3 text-xl">Good morning !</span>
+     </a>
+    
+     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+       <a class="mr-5 hover:text-gray-900">My listing</a>
+       <a class="mr-5 hover:text-gray-900">History</a>
+       <a class="mr-5 hover:text-gray-900">AlgoGems</a>
+     </nav>
+   </div>
+ </header>
+	<div class="text-center mb-20 mt-20">
+	  <h1 class="text-6xl font-bold title-font text-gray-900 mb-4">This is the 
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Dummy Gems </span> 
+      App</h1>
+	  <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Nothing important to read there.</p>
+	  <div class="flex mt-6 justify-center">
+		<div class="w-16 h-1 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 inline-flex"></div>
+	  </div>
+    <transactions-viewer class="mt-20" />
+	</div>
 </template>
