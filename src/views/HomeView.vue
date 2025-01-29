@@ -26,7 +26,7 @@ export default defineComponent({
          <path d="M16 9L12 22"></path>
          <path d="M2 9l10 3 10-3"></path>
        </svg>
-       <span class="ml-3 text-xl">Good morning !</span>
+       <span class="ml-3 text-xl">Good Morning !</span>
      </a>
     
      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
