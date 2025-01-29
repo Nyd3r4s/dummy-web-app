@@ -72,11 +72,11 @@ export default defineComponent({
 </script>
 <template>
     <div class="flex justify-center mb-4 mt-10 mb-10">
-        <button @click="createListing" class="relative text-white font-bold py-1 px-1 rounded-full flex items-center border-4 border-transparent g">
-            <span class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"></span>
-            <span class="relative hover:bg-black bg-white rounded-full py-1 px-2 flex items-center">
+        <button @click="createListing" class="relative text-white font-bold py-1 px-1 rounded-full flex items-center border-4 border-transparent g transform transition-transform duration-300 hover:scale-105 active:scale-95">
+            <span class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></span>
+            <span class="relative  bg-white rounded-full py-1 px-2 flex items-center">
                 <img src="./logo-CPhBn9kk.png" class="w-6 h-6 mr-2 " alt="Logo" />
-                <span class="text-black hover:text-white" >Make a listing</span>
+                <span class="text-black " >Make a listing</span>
             </span>
         </button>
     </div>
