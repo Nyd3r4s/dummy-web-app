@@ -80,7 +80,7 @@ export default defineComponent({
             </span>
         </button>
     </div>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-3 gap-x-36 gap-y-12 justify-center">
         <div v-for="transaction in transactions" :key="transaction.id" >
             <TransactionDisplayer :transaction="transaction" />
         </div>
